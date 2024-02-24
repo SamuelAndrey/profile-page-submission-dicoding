@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Profile Page | Samuel Andrey</title>
+
+  <link rel="stylesheet" href="assets/styles/style.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav id="navbar">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#project">Project</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="jumbotron">
+      <h1>&#128075; Samuel Andrey.</h1>
+      <p>Software Development Enthusiast</p>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main>
+    <div id="content">
+      <!-- About article -->
+      <article id="about" class="card">
+        <h2>About me &#128578;</h2>
+        <p>
+          Hello! I'am Samuel Andrey Aji Prasetya, a Software Engineering student with a focus on Software Development.
+          I currently study at Dian Nuswantoro University in Semarang, Central Java, Indonesia. I have a deep passion
+          for technology and a thirst for learning, which drives me to explore letious programming languages and frameworks.
+        </p>
+        <p>
+          My curiosity and enthusiasm drive me to explore new technologies and stay updated with industry trends.
+          I enjoy tackling challenging problems and finding innovative solutions through programming.
+        </p>
+      </article>
+
+      <!-- Education article -->
+      <article id="education" class="card">
+        <h2>Education &#127891;</h2>
+        <p>
+          Dian Nuswantoro University is one of the A-accredited private universities in Semarang,
+          Indonesia. Founded in 1990. The Chancellor in 2010 was Prof. Dr. Ir. Edi Noersasongko, M. Kom.
+        </p>
+        <p>
+          I took the undergraduate study program in informatics engineering at the computer science faculty because it suited my interests and talents.
+          I am already in my 3rd year of study, in the 6th semester to be precise, with a GPA of 3.93/4.00 and a specialization in software engineering.
+        </p>
+        <img src="assets/img/udinus-campus.webp" alt="Dian Nuswantoro University" class="featured-image">
+      </article>
+
+      <!-- Project article -->
+      <article id="project" class="card">
+        <h2>Project &#128187;</h2>
+        <p>
+          During my time in university and internships, I've completed various projects that have enhanced my skills. These include web development, data analysis, and software engineering tasks.
+          For example, I led a team project on creating a data visualization tool to analyze market trends, and I also contributed to developing a mobile app for internal communication during my internship.
+          These experiences have strengthened my technical skills and teamwork abilities, preparing me for my career.
+        </p>
+
+        <!-- project slider -->
+        <div class="project-slide">
+          <div class="slider">
+            <img src="assets/img/item-1.png" alt="Linked Task">
+            <div>
+              <h3>Linked Task</h3>
+              <p>Linked Task is an Useful as a list of school or work assignments, useful if there are tasks piling up within the deadline certain time.</p>
+            </div>
+          </div>
+          <div class="slider">
+            <img src="assets/img/item-2.png" alt="Matrix Calculator">
+            <div>
+              <h3>Matrix Calculator</h3>
+              <p>A website that provides calculators for calculating matrices, the calculation include determinants, subtraction, transpose, and more.</p>
+            </div>
+          </div>
+          <div class="slider">
+            <img src="assets/img/item-3.png" alt="Smart Door H6">
+            <section>
+              <h3>Smart Door H6</h3>
+              <p>Serving as an access control system, Smart Door H6 incorporates a scheduling mechanism that utilizes student ID cards for entry.</p>
+            </section>
+          </div>
+        </div>
+        <!-- end project slider -->
+      </article>
+    </div>
+
+    <!-- Aside -->
+    <aside>
+      <article class="profile profile-card" id="contact">
+        <header>
+          <h2>Connect..</h2>
+          <p>Samuel Andrey Aji Prasetya</p>
+          <figure>
+            <img src="assets/img/profile.jpg" alt="profile"/>
+          </figure>
+        </header>
+        <section>
+          <h4>
+            +628221129401<br>
+            Pati, Indonesia<br>
+            samuelandrey2021@gmail.com
+          </h4>
+        </section>
+      </article>
+
+      <!-- badge -->
+      <div class="badge-info">
+        <span>Samuel Andrey Aji Prasetya 2024</span>
+      </div>
+    </aside>
+
+  </main>
+
+  <footer>
+    <p>Belajar Dasar Pemrograman Web © 2024, Samuel Andrey</p>
+  </footer>
+
+  <script>
+    // slider or carousel for project section
+    let myIndex = 0;
+    carousel();
+
+    function carousel() {
+      let i;
+      let x = document.getElementsByClassName("slider");
+      for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+      }
+      myIndex++;
+      if (myIndex > x.length) {myIndex = 1}
+      x[myIndex-1].style.display = "flex";
+      setTimeout(carousel, 2000); // Change image every 2 seconds
+    }
+
+    // fix sticky navbar
+    document.querySelectorAll('#navbar a').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        const navbarHeight = document.getElementById('navbar').offsetHeight;
+        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+        window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>
